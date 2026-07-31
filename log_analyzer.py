@@ -28,6 +28,19 @@ def analyze_log(file_path):
         for ip, count in counter.items():
             print(f"{ip}: {count} attempts")
 
+        print()
+        print("=== SUSPICIOUS IP ADDRESSES ===")
+
+        suspicious_found = False
+
+        for ip, count in counter.items():
+            if count >= 3:
+                print(f"WARNING: {ip} has {count} failed attempts")
+                suspicious_found = True
+
+        if not suspicious_found:
+            print("No suspicious IP addresses detected.")
+
     except FileNotFoundError:
         print("Log file not found.")
 
