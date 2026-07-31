@@ -11,8 +11,8 @@ def analyze_log(file_path):
                 if "FAILED" in line:
                     parts = line.split()
 
-                    if len(parts) >= 4:
-                        ip = parts[3]
+                    if len(parts) >= 5:
+                        ip = parts[4]
                         failed_attempts.append(ip)
                         ip_addresses.append(ip)
 
